@@ -16,6 +16,7 @@ pytest-mock = ">=3.14.0"
 ipdb = ">=0.13.13"
 mypy = ">=1.14.1"
 flake8 = ">=7.1.1"
+httpx = ">=0.28.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -27,4 +28,3 @@ mypy_path = "rm_email_notifier"
 [tool.isort]
 profile = "hug"
 src_paths = ["rm_email_notifier"]
-
