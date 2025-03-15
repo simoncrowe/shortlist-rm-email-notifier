@@ -1,11 +1,16 @@
 import os
 
 import boto3
+import structlog
 
 from rm_email_notifier import models
 
+logger = structlog.get_logger()
+
 
 def send(profile: models.Profile):
+    logger.info("Composing email for profile", **profile.dict())
+
     aws_region = os.environ["AWS_REGION"]
     ses_identity_arn = os.environ["AWS_SES_IDENTITY_ARN"]
     source_email = os.environ["SOURCE_EMAIL"]
@@ -64,3 +69,7 @@ def send(profile: models.Profile):
 
         }
     )
+    logger.info("Successfully sent email",
+                ses_identity_arn=ses_identity_arn,
+                source_email=source_email,
+                destination_email=destination_email)
