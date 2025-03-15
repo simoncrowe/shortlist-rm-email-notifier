@@ -9,7 +9,7 @@ logger = structlog.get_logger()
 
 
 def send(profile: models.Profile):
-    logger.info("Composing email for profile", **profile.dict())
+    logger.info("Composing email for profile", **profile.metadata.dict())
 
     aws_region = os.environ["AWS_REGION"]
     ses_identity_arn = os.environ["AWS_SES_IDENTITY_ARN"]
