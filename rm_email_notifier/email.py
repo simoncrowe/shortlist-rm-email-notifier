@@ -6,11 +6,12 @@ from rm_email_notifier import models
 
 
 def send(profile: models.Profile):
+    aws_region = os.environ["AWS_REGION"]
     ses_identity_arn = os.environ["AWS_SES_IDENTITY_ARN"]
     source_email = os.environ["SOURCE_EMAIL"]
     destination_email = os.environ["DESTINATION_EMAIL"]
 
-    ses = boto3.client("ses")
+    ses = boto3.client("ses", region_name=aws_region)
 
     subject = f"Property Profile Matched: {profile.metadata.summary}"
 
