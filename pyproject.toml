@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 boto3 = ">=1.35.97"
+structlog = ">=25.2.0"
 fastapi = { extras = ["standard"], version = ">=0.115.6"}
 
 [tool.poetry.group.dev.dependencies]
