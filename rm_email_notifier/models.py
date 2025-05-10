@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
 
 
 class ProfileMetadata(BaseModel):
-    url: str
+    url: HttpUrl
     price: str
     location: str
     summary: str
